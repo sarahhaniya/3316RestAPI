@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Destinations</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+</head>
+
+<body>
+  <header>
+    <h1>Sarah’s Lab 3</h1>
+  </header>
+
+  <main>
+    <h2>Search Destinations</h2>
+
+    <!-- Search Section -->
+    <section class="search-section">
+      <div class="search-container">
+        <form id="searchForm">
+          <label for="criteria">Search By:</label>
+          <select id="criteria" name="criteria">
+            <option value="destination">Name</option>
+            <option value="region">Region</option>
+            <option value="country">Country</option>
+          </select>
+
+          <label for="searchTerm">Search Term:</label>
+          <input type="text" id="searchTerm" name="searchTerm" placeholder="Enter search term">
+
+          <label for="numMatches">Number of Matches:</label>
+          <input type="number" id="numMatches" name="numMatches" placeholder="All" min="1">
+
+          <button class="submit-btn" type="submit">Search</button>
+        </form>
+
+        <div class="button-container">
+          <p>OR</p>
+          <button id="displayAll">Display All Destinations</button>
+        </div>
+      </div>
+
+
+
+      <h3 class="h3">Search Results</h3>
+      <!-- Pagination Settings for displaying results per page -->
+      <div class="pagination-controls">
+        <label id="dpp" for="displayPerPage">Items per Page:</label>
+        <select id="displayPerPage">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+        </select>
+      </div>
+      <ul id="results">
+        <!-- Dynamic destination entries will populate here -->
+      </ul>
+      <div class="pagination">
+        <button id="prevPage" disabled>Previous</button>
+        <button id="nextPage" disabled>Next</button>
+      </div>
+    </section>
+
+    <h2>Manage Lists:</h2>
+    <section class="manage-lists">
+      <h3>Create New List</h3>
+      <div class="manage-container">
+        <div class="newList-container">
+          <form id="createListForm" class="list-controls">
+            <input type="text" id="newListName" name="newListName" placeholder="Enter New List Name">
+            <button type="submit" id="createList">Create New List</button>
+          </form>
+        </div>
+      </div>
+
+
+      <h3>Delete New List</h3>
+      <div class="manage-container">
+        <div class="newList-container">
+          <form id="delListForm" class="list-controls">
+            <input type="text" id="delListName" name="delListName" placeholder=" Enter List Name To Delete">
+            <button type="submit" id="delList">Delete List</button>
+          </form>
+        </div>
+      </div>
+
+      <h3 class="h3">Display All Lists</h3>
+
+      <ul id="lists">
+        <!-- Dynamic list entries will populate here -->
+      </ul>
+
+
+
+      <ul id="listItem">
+        <form id="sortForm">
+          <label for="sortCriteria">Sort By:</label>
+          <select id="sortCriteria" name="sortCriteria">
+            <option value="none">None</option>
+            <option value="destination">Name</option>
+            <option value="region">Region</option>
+            <option value="country">Country</option>
+          </select>
+        </form>
+        <!-- Dedicated container for dynamically populated list items -->
+        <div id="dynamicListContent"></div>
+      </ul>
+
+    </section>
+  </main>
+
+  <script src="lab3.js"></script>
+</body>
+
+</html>
